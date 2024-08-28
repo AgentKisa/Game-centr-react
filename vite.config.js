@@ -7,4 +7,14 @@ export default defineConfig({
   build: {
     sourcemap: true,
   },
+  assetsInclude: ["**/*.JPG", "**/*.png", "**/*.svg"],
+  server: {
+    proxy: {
+      "/api": {
+        target: "https://api.rawg.io",
+        changeOrigin: true,
+        rewrite: (path) => path.replace(/^\/api/, ""),
+      },
+    },
+  },
 });

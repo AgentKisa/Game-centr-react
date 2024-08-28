@@ -3,36 +3,29 @@
     justify-content: space-between;
     align-items: center;
     padding: 20px;
-    background-color: #1a1a1a;
-    color: #ffffff;
+    background-color: #000000;
+    color: #FFFFFF;
+    margin: 0px 30px 0px 30px;
 }
 
 .logo {
     font-size: 24px;
     font-weight: bold;
+    color: #FF073A;
 }
 
 .link {
-    color: #ffffff;
+    color: #FFFFFF;
+    /* Белый текст для ссылок */
     text-decoration: none;
     font-size: 18px;
+    transition: color 0.3s ease;
 }
 
 .link:hover {
-    color: #ffcc00;
-}
-
-.navMenu {
-    display: flex;
-    align-items: center;
-}
-
-.navList {
-    list-style-type: none;
-    display: flex;
-    gap: 20px;
-    padding: 0;
-    margin: 0;
+    color: #FF073A;
+    /* Неоновый красный при наведении */
+    animation: shake 1s ease-in-out;
 }
 
 .searchBar {
@@ -42,22 +35,49 @@
 
 .searchInput {
     padding: 8px;
+    width: 300px;
     font-size: 16px;
     border-radius: 4px;
-    border: 1px solid #ccc;
+    border: 1px solid #00BFFF;
+    background-color: transparent;
+}
+
+.searchInput:focus {
+    border: #FF073A;
 }
 
 .searchButton {
     padding: 8px 12px;
     font-size: 16px;
-    border: none;
-    background-color: #ffcc00;
-    color: #1a1a1a;
+    background-color: color #FFFFFF;
     border-radius: 4px;
+    border-color: #39FF14;
     cursor: pointer;
     margin-left: 8px;
 }
 
 .searchButton:hover {
-    background-color: #e6b800;
+    background-color: #39FF14;
+}
+
+@keyframes shake {
+    0% {
+        transform: translateX(0);
+    }
+
+    25% {
+        transform: translateX(-50px);
+    }
+
+    50% {
+        transform: translateX(50px);
+    }
+
+    75% {
+        transform: translateX(-50px);
+    }
+
+    100% {
+        transform: translateX(0);
+    }
 }

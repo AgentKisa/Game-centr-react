@@ -1,0 +1,13 @@
+.sliderContainer {
+    position: relative;
+    max-width: 100%;
+    margin: 0 auto;
+
+}
+
+
+.slideImage {
+    width: 1400px;
+    height: 600px;
+
+}
