@@ -1,8 +1,9 @@
 import React from "react";
 import Slider from "react-slick";
+import Blur from "react-blur";
 import styles from "./BannerSlider.module.css";
 import banner1 from "../../assets/1_rXxbasOtNQjXg5ysD7PIhA.png";
-import banner2 from "../../assets/snapedit_1724747981812.jpg";
+import banner2 from "../../assets/fjfkd.JPG";
 import banner3 from "../../assets/banner3.JPG";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";

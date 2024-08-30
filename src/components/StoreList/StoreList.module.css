@@ -1,0 +1,76 @@
+/* src/components/StoreList/StoreList.module.css */
+.storeList {
+    padding: 20px;
+    /* background: linear-gradient(135deg, #f4f4f4 0%, #e2e2e2 100%); */
+    border-radius: 12px;
+    /* box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); */
+    max-width: 1300px;
+    margin: 0 auto;
+    color: #007bff;
+}
+
+.link {
+    margin-bottom: 20px;
+    font-size: 28px;
+    color: #f4080c;
+    font-family: 'Roboto', sans-serif;
+    border-bottom: 2px solid #007bff;
+    padding-bottom: 10px;
+    display: inline-block;
+}
+
+.storeList ul {
+    list-style: none;
+    padding: 0;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+    gap: 20px;
+}
+
+.storeList li {
+    background: black;
+    border-radius: 8px;
+    overflow: hidden;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    padding: 15px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.storeList li:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+}
+
+.storeList img {
+    width: 100%;
+    height: 140px;
+    object-fit: cover;
+    border-radius: 8px;
+    margin-bottom: 15px;
+}
+
+.storeList span {
+    font-size: 16px;
+    font-weight: 600;
+    color: #07f141;
+}
+
+.storeList a {
+    text-decoration: none;
+    color: inherit;
+}
+
+.storeList a:hover {
+    color: #007bff;
+}
+
+.loaderContainer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 30vh;
+}

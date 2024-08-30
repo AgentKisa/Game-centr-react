@@ -1,0 +1,69 @@
+/* src/components/StoreList/StoreList.module.css */
+.storeList {
+    padding: 20px;
+    /* background: #1b1b1b; */
+    /* border-radius: 12px; */
+    max-width: 1300px;
+    margin: 20px auto;
+    color: #fb0a0a;
+    /* box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5); */
+}
+
+.link {
+    font-size: 32px;
+    color: #f20808;
+    margin-bottom: 30px;
+    font-family: 'Roboto', sans-serif;
+    border-bottom: 3px solid #0df840;
+    padding-bottom: 10px;
+}
+
+.storeList ul {
+    list-style: none;
+    padding: 0;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 20px;
+}
+
+.storeList li {
+    margin-top: 20px;
+    background: #222;
+    border-radius: 10px;
+    overflow: hidden;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    padding: 20px;
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2);
+}
+
+.storeList li:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 12px 24px rgba(0, 0, 0, 0.4);
+}
+
+.storeList img {
+    width: 100%;
+    height: 180px;
+    object-fit: cover;
+    border-radius: 8px;
+    margin-bottom: 15px;
+}
+
+.storeList span {
+    font-size: 18px;
+    font-weight: 700;
+    color: #05f429;
+}
+
+.storeList a {
+    text-decoration: none;
+    color: inherit;
+}
+
+.loaderContainer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 60vh;
+    color: #ff0000;
+}

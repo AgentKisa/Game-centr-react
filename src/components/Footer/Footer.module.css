@@ -1,0 +1,94 @@
+/* src/components/Footer/Footer.module.css */
+.footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px;
+    background-color: #000000;
+    color: #FFFFFF;
+    margin: 0px 30px;
+
+}
+
+.container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+}
+
+.logo {
+    font-size: 14px;
+    font-weight: bold;
+    color: #FF073A;
+}
+
+.nav ul {
+    list-style: none;
+    padding: 0;
+    display: flex;
+    gap: 20px;
+    margin: 0;
+}
+
+.nav li {
+    display: inline;
+}
+
+.link {
+    color: #FFFFFF;
+    text-decoration: none;
+    font-size: 18px;
+    transition: color 0.3s ease;
+}
+
+.link:hover {
+    color: #FF073A;
+    animation: shake 1s ease-in-out;
+}
+
+.social {
+    display: flex;
+    gap: 15px;
+}
+
+.socialIcon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    background-color: #FF073A;
+    color: #FFFFFF;
+    font-size: 18px;
+    text-decoration: none;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+.socialIcon:hover {
+    background-color: #FF073A;
+    color: #000000;
+}
+
+@keyframes shake {
+    0% {
+        transform: translateX(0);
+    }
+
+    25% {
+        transform: translateX(-50px);
+    }
+
+    50% {
+        transform: translateX(50px);
+    }
+
+    75% {
+        transform: translateX(-50px);
+    }
+
+    100% {
+        transform: translateX(0);
+    }
+}

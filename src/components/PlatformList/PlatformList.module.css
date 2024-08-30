@@ -1,0 +1,40 @@
+/* src/components/PlatformList/PlatformList.module.css */
+.platformList {
+    padding: 20px;
+    background-color: #f4f4f4;
+    border-radius: 8px;
+}
+
+.platformList h2 {
+    margin-bottom: 15px;
+    font-size: 24px;
+    color: #333;
+}
+
+.platformList ul {
+    list-style: none;
+    padding: 0;
+}
+
+.platformList li {
+    margin-bottom: 15px;
+    display: flex;
+    align-items: center;
+}
+
+.platformList img {
+    width: 50px;
+    height: 50px;
+    border-radius: 8px;
+    margin-right: 15px;
+    object-fit: cover;
+}
+
+.platformList span {
+    font-weight: bold;
+}
+
+.platformList li:hover {
+    background-color: #e2e2e2;
+    border-radius: 4px;
+}
