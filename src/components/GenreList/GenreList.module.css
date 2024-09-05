@@ -1,0 +1,41 @@
+.genreList {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    padding: 20px;
+    border-radius: 10px;
+}
+
+.genreItem {
+    background-color: #1f1f1f;
+    color: #fff;
+    padding: 15px;
+    margin: 10px;
+    border-radius: 8px;
+    text-align: center;
+    text-decoration: none;
+    font-size: 18px;
+    flex: 1 1 calc(25% - 20px);
+    max-width: calc(25% - 20px);
+    transition: transform 0.3s, background-color 0.3s;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.genreItem:hover {
+    background-color: #ff4c60;
+    transform: scale(1.05);
+}
+
+.genreImage {
+    width: 40px;
+    height: 40px;
+    margin-right: 10px;
+    border-radius: 5px;
+}
+
+.genreName {
+    color: #fff;
+    font-weight: bold;
+}

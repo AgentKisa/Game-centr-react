@@ -7,6 +7,11 @@ import GameList from "./components/GameList/GameList";
 import StoreList from "./components/StoreList/StoreList";
 import PlatformList from "./components/PlatformList/PlatformList";
 import Footer from "./components/Footer/Footer";
+import TopGamesPage from "./components/TopGamesPage/TopGamesPage";
+import GameDetailsPage from "./components/GameDetailsPage/GameDetailsPage";
+import StoreDetailsPage from "./components/StoreDetailsPage/StoreDetailsPage";
+import GenreList from "./components/GenreList/GenreList";
+import GenrePage from "./components/GenrePage/GenrePage";
 
 function App() {
   return (
@@ -26,6 +31,15 @@ function App() {
           }
         />
         <Route
+          path="/game/:id"
+          element={
+            <>
+              <GameDetailsPage />
+              <Footer />
+            </>
+          }
+        />
+        <Route
           path="/store"
           element={
             <>
@@ -34,7 +48,42 @@ function App() {
             </>
           }
         />
-        {/* Добавьте другие маршруты по необходимости */}
+        <Route
+          path="/store/:id"
+          element={
+            <>
+              <StoreDetailsPage />
+              <Footer />
+            </>
+          }
+        />
+        <Route
+          path="/top-games"
+          element={
+            <>
+              <TopGamesPage />
+              <Footer />
+            </>
+          }
+        />
+        <Route
+          path="/genres"
+          element={
+            <>
+              <GenreList />
+              <Footer />
+            </>
+          }
+        />
+        <Route
+          path="/genres/:slug"
+          element={
+            <>
+              <GenrePage />
+              <Footer />
+            </>
+          }
+        />
       </Routes>
     </div>
   );

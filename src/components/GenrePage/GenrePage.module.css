@@ -1,0 +1,82 @@
+.genrePage {
+    padding: 40px 20px;
+    max-width: 1400px;
+    margin: 0 auto;
+    color: #ea150e;
+    border-radius: 15px;
+}
+
+.genrePage h1 {
+    font-size: 48px;
+    margin-bottom: 30px;
+    color: #05f219;
+    text-align: center;
+}
+
+.genrePage .gameList {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    gap: 20px;
+}
+
+.genrePage .gameItem {
+    background-color: #2b2b2b;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 2px 15px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.genrePage .gameItem:hover {
+    transform: scale(1.05);
+    box-shadow: 0 4px 25px rgba(0, 0, 0, 0.3);
+}
+
+.genrePage .gameImage {
+    width: 100%;
+    height: 180px;
+    object-fit: cover;
+}
+
+.genrePage .gameName {
+    font-size: 20px;
+    color: #ffffff;
+    padding: 15px;
+    text-align: center;
+    background-color: #333;
+}
+
+.genrePage .gameItem a {
+    text-decoration: none;
+    color: inherit;
+}
+
+.genrePage .gameItem a:hover .gameName {
+    color: #05f219;
+}
+
+.loader {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+.error {
+    text-align: center;
+    color: red;
+    font-size: 18px;
+}
+
+.loadMoreButton {
+    display: block;
+    margin: 20px auto;
+    padding: 10px 20px;
+    font-size: 16px;
+    background: #fb1f07;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background 0.3s ease;
+}

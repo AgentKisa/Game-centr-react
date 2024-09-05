@@ -1,6 +1,5 @@
 import React from "react";
 import Slider from "react-slick";
-import Blur from "react-blur";
 import styles from "./BannerSlider.module.css";
 import banner1 from "../../assets/1_rXxbasOtNQjXg5ysD7PIhA.png";
 import banner2 from "../../assets/fjfkd.jpg";

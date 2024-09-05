@@ -1,11 +1,9 @@
-// src/components/StoreList/StoreList.jsx
 import React, { useEffect, useState } from "react";
 import { fetchStores } from "../../Api/Api";
-import styles from "./StoreList.module.css";
 import { DNA } from "react-loader-spinner";
+import { Link, useLocation } from "react-router-dom";
 import defaultStyles from "./StoreList.module.css";
 import pageStyles from "./StoreListPage.module.css";
-import { Link, useLocation } from "react-router-dom";
 
 const StoreList = () => {
   const [stores, setStores] = useState([]);
@@ -49,20 +47,17 @@ const StoreList = () => {
 
   return (
     <div className={styles.storeList}>
-      <Link to="/store" className={styles.link}>
-        Game Store
-      </Link>
       <ul>
         {stores.map((store) => (
           <li key={store.id}>
-            <a href={store.url} target="_blank" rel="noopener noreferrer">
+            <Link to={`/store/${store.id}`} className={styles.link}>
               <img
                 src={store.image_background}
                 alt={store.name}
                 className={styles.storeImage}
               />
               <span>{store.name}</span>
-            </a>
+            </Link>
           </li>
         ))}
       </ul>
