@@ -12,6 +12,7 @@ import GameDetailsPage from "./components/GameDetailsPage/GameDetailsPage";
 import StoreDetailsPage from "./components/StoreDetailsPage/StoreDetailsPage";
 import GenreList from "./components/GenreList/GenreList";
 import GenrePage from "./components/GenrePage/GenrePage";
+import SearchResultsPage from "./components/SearchResultsPage/SearchResultsPage";
 
 function App() {
   return (
@@ -80,6 +81,15 @@ function App() {
           element={
             <>
               <GenrePage />
+              <Footer />
+            </>
+          }
+        />
+        <Route
+          path="/search"
+          element={
+            <>
+              <SearchResultsPage /> {/* Render the search results here */}
               <Footer />
             </>
           }

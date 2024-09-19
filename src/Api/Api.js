@@ -152,3 +152,15 @@ export const fetchGamesByGenre = async (genreSlug) => {
     throw new Error("Failed to fetch games for the selected genre");
   }
 };
+
+export const fetchGamesByQuery = async (query) => {
+  const response = await axios.get(
+    `https://api.rawg.io/api/games?key=YOUR_API_KEY&search=${query}`,
+    {
+      params: {
+        key: API_KEY,
+      },
+    }
+  );
+  return response.data.results;
+};

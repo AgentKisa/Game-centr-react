@@ -1,0 +1,45 @@
+/* SearchResultsPage.module.css */
+.searchResults {
+    padding: 20px;
+    background-color: #f5f5f5;
+}
+
+.title {
+    font-size: 24px;
+    font-weight: bold;
+    margin-bottom: 20px;
+    color: #333;
+}
+
+.gameList {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: center;
+}
+
+.gameItem {
+    width: 200px;
+    text-align: center;
+    background-color: #fff;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease;
+}
+
+.gameItem:hover {
+    transform: translateY(-5px);
+}
+
+.gameImage {
+    width: 100%;
+    height: 150px;
+    object-fit: cover;
+}
+
+.gameTitle {
+    font-size: 18px;
+    margin: 10px 0;
+    color: #007bff;
+}
