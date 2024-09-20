@@ -43,16 +43,22 @@ const SearchResultsPage = () => {
         {games.length === 0 ? (
           <p>No games found.</p>
         ) : (
-          games.map((game) => (
-            <div key={game.id} className={styles.gameItem}>
-              <Link to={`/game/${game.id}`}>
-                <img
-                  src={game.background_image || "/path-to-placeholder.jpg"}
-                  alt={game.name}
-                  className={styles.gameImage}
-                />
-                <h3 className={styles.gameTitle}>{game.name}</h3>
-              </Link>
+          games.map((game, index) => (
+            <div
+              key={game.id}
+              className={styles.gameItemAnimation}
+              style={{ animationDelay: `${index * 0.1}s` }}
+            >
+              <div className={styles.gameItem}>
+                <Link to={`/game/${game.id}`}>
+                  <img
+                    src={game.background_image || "/path-to-placeholder.jpg"}
+                    alt={game.name}
+                    className={styles.gameImage}
+                  />
+                  <h3 className={styles.gameTitle}>{game.name}</h3>
+                </Link>
+              </div>
             </div>
           ))
         )}
