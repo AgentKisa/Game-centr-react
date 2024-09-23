@@ -153,14 +153,14 @@ export const fetchGamesByGenre = async (genreSlug) => {
   }
 };
 
-export const fetchGamesByQuery = async (query) => {
-  const response = await axios.get(
-    `https://api.rawg.io/api/games?key=YOUR_API_KEY&search=${query}`,
-    {
-      params: {
-        key: API_KEY,
-      },
-    }
-  );
+export const fetchGamesByQuery = async (query, page = 1) => {
+  const response = await axios.get(`https://api.rawg.io/api/games`, {
+    params: {
+      key: API_KEY,
+      search: query,
+      page: page,
+      page_size: 20,
+    },
+  });
   return response.data.results;
 };

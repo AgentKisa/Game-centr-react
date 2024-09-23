@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import { useSearchParams, Link } from "react-router-dom";
 import { fetchGamesByQuery } from "../../Api/Api";
 import styles from "./SearchResultsPage.module.css";
+import { DNA } from "react-loader-spinner";
 
 const SearchResultsPage = () => {
   const [games, setGames] = useState([]);
@@ -10,12 +11,17 @@ const SearchResultsPage = () => {
   const [searchParams] = useSearchParams();
   const query = searchParams.get("query");
 
+  const [page, setPage] = useState(1);
+  const [hasMore, setHasMore] = useState(true);
+
   useEffect(() => {
     const searchGames = async () => {
       try {
         setLoading(true);
-        const gamesData = await fetchGamesByQuery(query);
-        setGames(gamesData);
+        setError(null);
+        const gamesData = await fetchGamesByQuery(query, page);
+        setGames((prevGames) => [...prevGames, ...gamesData]);
+        setHasMore(gamesData.length === 20);
       } catch (error) {
         setError("Failed to fetch games.");
       } finally {
@@ -26,19 +32,42 @@ const SearchResultsPage = () => {
     if (query) {
       searchGames();
     }
+  }, [query, page]);
+
+  useEffect(() => {
+    setGames([]);
+    setPage(1);
+    setHasMore(true);
   }, [query]);
 
-  if (loading) {
-    return <div>Loading...</div>;
+  const loadMoreGames = () => {
+    if (hasMore) {
+      setPage((prevPage) => prevPage + 1);
+    }
+  };
+
+  if (loading && page === 1) {
+    return (
+      <div className={styles.loader}>
+        <DNA
+          visible={true}
+          height="100"
+          width="100"
+          ariaLabel="dna-loading"
+          wrapperStyle={{}}
+          wrapperClass="dna-wrapper"
+        />
+      </div>
+    );
   }
 
   if (error) {
-    return <div>{error}</div>;
+    return <div className={styles.error}>{error}</div>;
   }
 
   return (
     <div className={styles.searchResults}>
-      <h1 className={styles.title}>Results search: {query}</h1>
+      <h1 className={styles.title}>Search: {query}</h1>
       <div className={styles.gameList}>
         {games.length === 0 ? (
           <p>No games found.</p>
@@ -63,6 +92,11 @@ const SearchResultsPage = () => {
           ))
         )}
       </div>
+      {hasMore && (
+        <button className={styles.loadMoreButton} onClick={loadMoreGames}>
+          Load More
+        </button>
+      )}
     </div>
   );
 };
