@@ -1,16 +1,58 @@
+@keyframes fadeInDown {
+    0% {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes fadeInSlide {
+    0% {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.gameItemAnimation {
+    opacity: 0;
+    animation: fadeInSlide 0.6s ease-out forwards;
+}
+
+.gameItemAnimation.visible {
+    opacity: 1;
+}
+
 .genrePage {
     padding: 40px 20px;
     max-width: 1400px;
     margin: 0 auto;
-    color: #ea150e;
-    border-radius: 15px;
+    border: none;
+    animation: fadeInDown 0.8s ease-out;
 }
 
 .genrePage h1 {
     font-size: 48px;
-    margin-bottom: 30px;
-    color: #05f219;
+    font-weight: bold;
+    margin-bottom: 40px;
+    color: #ffffff;
     text-align: center;
+    background: linear-gradient(90deg, #ff416c, #ff4b2b);
+    background-clip: text;
+    -webkit-background-clip: text;
+    color: transparent;
+    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2);
+    letter-spacing: 1px;
+    animation: fadeInDown 0.8s ease-out;
+    /* Анимация заголовка */
 }
 
 .genrePage .gameList {
@@ -19,12 +61,34 @@
     gap: 20px;
 }
 
-.genrePage .gameItem {
-    background-color: #2b2b2b;
+.genrePage {
     border-radius: 12px;
     overflow: hidden;
-    box-shadow: 0 2px 15px rgba(0, 0, 0, 0.1);
     transition: transform 0.3s ease, box-shadow 0.3s ease;
+    animation: fadeInDown 0.8s ease-out;
+}
+
+.gameItem {
+    height: 290px;
+    text-align: center;
+    border-radius: 15px;
+    border: #333;
+    font-size: 20px;
+    font-weight: 600;
+    color: #2dcc25;
+    margin-top: 10px;
+    margin-bottom: 5px;
+    letter-spacing: 0.5px;
+    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.3);
+    transition: color 0.3s ease, transform 0.3s ease;
+    text-decoration: none;
+    padding: 2px;
+    text-align: center;
+    background-color: #fff;
+    overflow: hidden;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    /* Уберите анимацию из .gameItem, чтобы избежать конфликтов */
 }
 
 .genrePage .gameItem:hover {
@@ -34,7 +98,7 @@
 
 .genrePage .gameImage {
     width: 100%;
-    height: 180px;
+    height: 150px;
     object-fit: cover;
 }
 

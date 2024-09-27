@@ -37,11 +37,9 @@
 }
 
 .gameList {
-    display: flex;
-    flex-wrap: wrap;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
     gap: 20px;
-    justify-content: center;
-    text-decoration: none;
 }
 
 @keyframes fadeInSlide {
@@ -67,7 +65,7 @@
 
 
 .gameItem {
-    width: 200px;
+    /* width: 200px; */
     height: 290px;
     text-align: center;
     background-color: #fff;
@@ -97,7 +95,6 @@
     margin-top: 10px;
     margin-bottom: 5px;
     letter-spacing: 0.5px;
-    text-transform: uppercase;
     text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.3);
     transition: color 0.3s ease, transform 0.3s ease;
     text-decoration: none;

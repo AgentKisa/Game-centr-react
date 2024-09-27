@@ -3,6 +3,7 @@ import { useSearchParams, Link } from "react-router-dom";
 import { fetchGamesByQuery } from "../../Api/Api";
 import styles from "./SearchResultsPage.module.css";
 import { DNA } from "react-loader-spinner";
+import toast, { Toaster } from "react-hot-toast";
 
 const SearchResultsPage = () => {
   const [games, setGames] = useState([]);
@@ -33,6 +34,13 @@ const SearchResultsPage = () => {
       searchGames();
     }
   }, [query, page]);
+
+  // Используйте этот useEffect для показа сообщения, если игр не найдено
+  useEffect(() => {
+    if (games.length === 0 && !loading && query) {
+      toast.error("No games found");
+    }
+  }, [games, loading, query]);
 
   useEffect(() => {
     setGames([]);
@@ -67,30 +75,27 @@ const SearchResultsPage = () => {
 
   return (
     <div className={styles.searchResults}>
+      <Toaster />
       <h1 className={styles.title}>Search: {query}</h1>
       <div className={styles.gameList}>
-        {games.length === 0 ? (
-          <p>No games found.</p>
-        ) : (
-          games.map((game, index) => (
-            <div
-              key={game.id}
-              className={styles.gameItemAnimation}
-              style={{ animationDelay: `${index * 0.1}s` }}
-            >
-              <div className={styles.gameItem}>
-                <Link to={`/game/${game.id}`}>
-                  <img
-                    src={game.background_image || "/path-to-placeholder.jpg"}
-                    alt={game.name}
-                    className={styles.gameImage}
-                  />
-                  <h3 className={styles.gameTitle}>{game.name}</h3>
-                </Link>
-              </div>
+        {games.map((game, index) => (
+          <div
+            key={game.id}
+            className={styles.gameItemAnimation}
+            style={{ animationDelay: `${index * 0.1}s` }}
+          >
+            <div className={styles.gameItem}>
+              <Link to={`/game/${game.id}`}>
+                <img
+                  src={game.background_image || "/path-to-placeholder.jpg"}
+                  alt={game.name}
+                  className={styles.gameImage}
+                />
+                <h3 className={styles.gameTitle}>{game.name}</h3>
+              </Link>
             </div>
-          ))
-        )}
+          </div>
+        ))}
       </div>
       {hasMore && (
         <button className={styles.loadMoreButton} onClick={loadMoreGames}>

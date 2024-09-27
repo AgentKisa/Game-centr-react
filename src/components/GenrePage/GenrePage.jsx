@@ -9,17 +9,25 @@ const GenrePage = () => {
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
   const [page, setPage] = useState(1);
-  const [hasMore, setHasMore] = useState(true); // For load more button
+  const [hasMore, setHasMore] = useState(true);
+
+  useEffect(() => {
+    setGames([]);
+    setPage(1);
+    setHasMore(true);
+  }, [slug]);
 
   useEffect(() => {
     const getGames = async () => {
+      setLoading(true);
+      setError(null);
       try {
-        const data = await fetchGamesByGenre(slug, page); // Add page as param
+        const data = await fetchGamesByGenre(slug, page);
         if (data.length > 0) {
           setGames((prevGames) => [...prevGames, ...data]);
-          setHasMore(data.length === 20); // Assume API returns 20 games per page
+          setHasMore(data.length === 20);
         } else {
-          setHasMore(false); // No more games to load
+          setHasMore(false);
         }
       } catch (error) {
         setError("Failed to fetch games");
@@ -38,8 +46,12 @@ const GenrePage = () => {
     <div className={styles.genrePage}>
       <h1 className={styles.title}>Games in {slug} genre</h1>
       <div className={styles.gameList}>
-        {games.map((game) => (
-          <div key={game.id} className={styles.gameItem}>
+        {games.map((game, index) => (
+          <div
+            key={game.id}
+            className={styles.gameItem + " " + styles.gameItemAnimation}
+            style={{ animationDelay: `${index * 0.1}s` }}
+          >
             <Link to={`/game/${game.id}`}>
               <img
                 src={game.background_image || "/path-to-placeholder.jpg"}
